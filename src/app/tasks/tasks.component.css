@@ -1,0 +1,52 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffebf0;
+  border: 2px solid #ffccd7;
+  border-radius: 10px;
+  margin-left: 2%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  width: 93%;
+  padding: 8px;
+  transition: background-color 0.5s;
+  transition: border 0.5s;
+}
+
+.completed-task-container {
+    background-color: #EEEEEE;
+    border: 2px solid #616161;
+}
+
+.task-container {
+  display: flex;
+  align-items: center;
+}
+
+.check-button-false, .check-button-true {
+  margin-right: 10px;
+}
+
+.check-button-true, .delete-button {
+    background-color: #EEEEEE;
+    border: 2px solid #616161;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.delete-button {
+  margin-left: auto;
+}

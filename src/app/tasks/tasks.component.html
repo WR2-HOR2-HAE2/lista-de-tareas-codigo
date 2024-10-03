@@ -1,0 +1,11 @@
+<ul>
+    @for (task of tasks | async; track $index) {
+        <li [class.completed-task-container]="task.isCompleted">
+            <div class="task-container">
+                <button [class.check-button-false]="!task.isCompleted" [class.check-button-true]="task.isCompleted" (click)="updateTaskState(task.id, task.isCompleted)">{{ task.isCompleted ? 'DONE' : 'TODO' }}</button>
+                <span [class.completed]="task.isCompleted">{{ task.text }}</span>
+            </div>
+            <button [class.delete-button]="task.isCompleted" (click)="deleteTask(task.id)">X</button>
+        </li>
+    }
+</ul>

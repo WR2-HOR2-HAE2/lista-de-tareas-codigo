@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dc143c;
+    font-size: xx-large;
+    font-weight: bolder;
+    padding-top: 1.5%;
+    padding-bottom: 2%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
