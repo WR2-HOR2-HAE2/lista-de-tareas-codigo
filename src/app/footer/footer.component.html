@@ -1,1 +1,4 @@
-<input type="text" id="taskToAdd" [(ngModel)]="task_description" (keydown.enter)="addTaskToCollection()"><button (click)="addTaskToCollection()">Añadir tarea</button>
+<footer class="flex justify-center items-center">
+    <input type="text" id="taskToAdd" [(ngModel)]="task_description" (keydown.enter)="addTaskToCollection()" class="bg-neutral-700 rounded-s-full px-2 w-8/12 xl:w-[27rem]">
+    <button (click)="addTaskToCollection()" class="bg-red-400 text-neutral-900 px-2 rounded-e-full">Añadir tarea</button>
+</footer>

@@ -1,11 +1,13 @@
-<ul>
-    @for (task of tasks | async; track $index) {
-        <li [class.completed-task-container]="task.isCompleted">
-            <div class="task-container">
-                <button [class.check-button-false]="!task.isCompleted" [class.check-button-true]="task.isCompleted" (click)="updateTaskState(task.id, task.isCompleted)">{{ task.isCompleted ? 'DONE' : 'TODO' }}</button>
-                <span [class.completed]="task.isCompleted">{{ task.text }}</span>
-            </div>
-            <button [class.delete-button]="task.isCompleted" (click)="deleteTask(task.id)">X</button>
-        </li>
-    }
-</ul>
+<div class="flex justify-center">
+    <ul class="py-1.5 xl:max-w-xl flex-1">
+        @for (task of tasks | async; track $index) {
+            <li class="flex justify-between items-center py-1.5 px-3 hover:bg-neutral-800">
+                <div class="flex-1 flex items-center mr-2">
+                    <button class="mr-2 bg-red-400 active:bg-red-200 text-neutral-900 px-2 rounded-full" [ngClass]="{'font-bold': task.isCompleted}" (click)="updateTaskState(task.id, task.isCompleted)">{{ task.isCompleted ? 'DONE' : 'TODO' }}</button>
+                    <span class="flex-1 overflow-hidden text-ellipsis whitespace-normal break-all" [ngClass]="task.isCompleted ? 'line-through text-red-800' : ''">{{ task.text }}</span>
+                </div>
+                <button class="ml-auto bg-red-400 active:bg-red-200 text-neutral-900 w-6 rounded-full" (click)="deleteTask(task.id)">X</button>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,14 +1,13 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { collection, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
+import { collection, collectionData, deleteDoc, doc, Firestore, orderBy, query, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-tasks',
-  standalone: true,
-  imports: [AsyncPipe],
-  templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.css'
+    selector: 'app-tasks',
+    imports: [AsyncPipe, CommonModule],
+    templateUrl: './tasks.component.html',
+    styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
   firestore: Firestore = inject(Firestore);
@@ -26,6 +25,7 @@ export class TasksComponent {
   }
 
   constructor () {
-    this.tasks = collectionData(this.taskCollection, { idField: "id" });
+    const tasksQuery = query(this.taskCollection, orderBy("date", "asc"))
+    this.tasks = collectionData(tasksQuery, { idField: "id" });
   }
 }
